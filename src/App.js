@@ -19,12 +19,7 @@ function App() {
   { name: 'Tapatio',
     hp: 3,
     color: 'orange' }]);
-  const [filteredGoblins, setFilteredGoblins] = useState([{ name: 'Sriracha',
-    hp: 5,
-    color: 'lightblue' },
-  { name: 'Tapatio',
-    hp: 3,
-    color: 'orange' }]);
+  const [filteredGoblins, setFilteredGoblins] = useState([]);
   const [goblinFormName, setGoblinFormName] = useState('');
   const [goblinFormHP, setGoblinFormHP] = useState(1);
   const [goblinFormColor, setGoblinFormColor] = useState('lightblue');
@@ -89,8 +84,9 @@ function App() {
         setGoblinFormHP={setGoblinFormHP}
         
       />
+      
       <GoblinList 
-        goblins={allGoblins} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
+        goblins={filteredGoblins.length ? filteredGoblins : allGoblins} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
         handleDeleteGoblin={handleDeleteGoblin} // note that the goblin list has access to the ability to delete
       />
     </div>

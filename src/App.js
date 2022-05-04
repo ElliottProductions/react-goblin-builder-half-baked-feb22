@@ -22,7 +22,7 @@ function App() {
   const [filteredGoblins, setFilteredGoblins] = useState([]);
   const [goblinFormName, setGoblinFormName] = useState('');
   const [goblinFormHP, setGoblinFormHP] = useState(1);
-  const [goblinFormColor, setGoblinFormColor] = useState('lightblue');
+  const [goblinFormColor, setGoblinFormColor] = useState('lightgreen');
 
 
   function submitGoblin(e) {
@@ -36,7 +36,7 @@ function App() {
     };
     // update the allGoblins array. Add the new goblin to the allGoblins array immutably.
     setAllGoblins([...allGoblins, newGob]);    // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
-    setGoblinFormColor('');
+    setGoblinFormColor('lightgreen');
     setGoblinFormHP('');
     setGoblinFormName('');
   }
@@ -51,7 +51,8 @@ function App() {
 
   function handleFilterGoblins(search) {
     // use the filter method to get an array of goblins whose name includes this search argument
-
+    const someGobs = allGoblins.filter(goblin => goblin.name.includes(search));
+    search ? setFilteredGoblins(someGobs) : setFilteredGoblins(allGoblins);
     // if there is a search argument, set the filtered goblins to the filtered goblins
     // if the search argument is undefined, set the filtered goblins in state to just be the array of all goblins
   }

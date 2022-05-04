@@ -16,8 +16,8 @@ function App() {
   const [allGoblins, setAllGoblins] = useState([{}, {}]);
   const [filteredGoblins, setFilteredGoblins] = useState([{}, {}]);
   const [goblinFormName, setGoblinFormName] = useState();
-  const [goblinFormHP, setGoblinFormHP] = useState();
-  const [goblinFormColor, setGoblinFormColor] = useState();
+  const [goblinFormHP, setGoblinFormHP] = useState(1);
+  const [goblinFormColor, setGoblinFormColor] = useState('red');
   
   function submitGoblin(e) {
     e.preventDefault();
@@ -60,18 +60,15 @@ function App() {
         {/* note that handleFilterGoblins is defined upstairs. This is where the allGoblins array gets filtered */}
         <input onChange={(e) => handleFilterGoblins(e.target.value)} />
       </div>
-      <GoblinForm 
-        /*
-        This component takes in a ton of props! 
-        Here is the list of props to pass:
-          submitGoblin,
-          goblinFormName, 
-          setGoblinFormName,
-          goblinFormColor, 
-          setGoblinFormColor,
-          goblinFormHP, 
-          setGoblinFormHP,
-        */
+      <GoblinForm
+        submitGoblin={submitGoblin}
+        goblinFormName={goblinFormName}
+        setGoblinFormName={setGoblinFormName}
+        goblinFormColor={goblinFormColor}
+        setGoblinFormColor={setGoblinFormColor}
+        goblinFormHP={goblinFormHP}
+        setGoblinFormHP={setGoblinFormHP}
+        
       />
       <GoblinList 
         goblins={[]} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 

@@ -53,7 +53,7 @@ function App() {
 
   function handleFilterGoblins(search) {
     // use the filter method to get an array of goblins whose name includes this search argument
-    const someGobs = allGoblins.filter(goblin => goblin.name.includes(search));
+    const someGobs = allGoblins.filter(goblin => goblin.name.toLowerCase().includes(search.toLowerCase()));
     search ? setFilteredGoblins(someGobs) : setFilteredGoblins(allGoblins);
     // if there is a search argument, set the filtered goblins to the filtered goblins
     // if the search argument is undefined, set the filtered goblins in state to just be the array of all goblins
@@ -73,7 +73,7 @@ function App() {
         }}/>
       </div>
       <div className='goblin-filter quarter'>
-        Filter Goblins
+        Filter Goblirinos
         {/* note that handleFilterGoblins is defined upstairs. This is where the allGoblins array gets filtered */}
         <input onChange={(e) => handleFilterGoblins(e.target.value)} />
       </div>

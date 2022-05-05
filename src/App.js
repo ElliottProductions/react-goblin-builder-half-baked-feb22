@@ -35,7 +35,8 @@ function App() {
       color: goblinFormColor
     };
     // update the allGoblins array. Add the new goblin to the allGoblins array immutably.
-    setAllGoblins([...allGoblins, newGob]);    // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
+    setAllGoblins([...allGoblins, newGob]);  
+    // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
     setGoblinFormColor('lightgreen');
     setGoblinFormHP('');
     setGoblinFormName('');
@@ -43,10 +44,12 @@ function App() {
 
   function handleDeleteGoblin(name) {
     // find the index of the goblin in allGoblins with this name
-
+    const goblin = allGoblins.findIndex(goblin => goblin.name === name);
+    console.log(goblin);
     // use splice to delete the goblin object at this index
-
+    allGoblins.splice(goblin, 1);
     // update the allGoblins array immutably to this new, smaller array
+    setAllGoblins([...allGoblins]);
   }
 
   function handleFilterGoblins(search) {

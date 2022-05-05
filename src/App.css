@@ -16,7 +16,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: solid 1px black;
-  padding: 50px
+  padding: 50px;
+  border-radius: 225px 225px 0px 0px;
 }
 
 .goblin-form label, .goblin-form input{
@@ -34,6 +35,8 @@ body {
 
 .goblin img {
   width: 100px;
+  border-radius: 45px 45px 0px 0px;
+  margin: 10px;
 }
 
 .goblin-list {

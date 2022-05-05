@@ -45,7 +45,6 @@ function App() {
   function handleDeleteGoblin(name) {
     // find the index of the goblin in allGoblins with this name
     const goblin = allGoblins.findIndex(goblin => goblin.name === name);
-    console.log(goblin);
     // use splice to delete the goblin object at this index
     allGoblins.splice(goblin, 1);
     // update the allGoblins array immutably to this new, smaller array
